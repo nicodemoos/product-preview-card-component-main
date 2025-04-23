@@ -1,0 +1,66 @@
+$CreamColor: hsl(30, 38%, 92%);
+$CardColor: hsl(0, 0%, 100%);
+$TitleColor: hsl(212, 21%, 14%);
+$GreenColor: hsl(158, 36%, 37%);
+$FontMain: "Montserrat", sans-serif;
+$FontBold: 700;
+$FontLight: 300;
+$SecondaryFont: "Fraunces", sans-serif;
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include flexCenter();
+  background-color: $CreamColor;
+  height: 100vh;
+  font-family: $FontMain;
+}
+
+.card {
+  display: flex;
+  background-color: $CardColor;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 900px;
+}
+
+.content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  h2 {
+    color: $TitleColor;
+    font-family: $FontMain;
+    font-weight: $FontLight;
+    letter-spacing: 5px; //espaçamento das letras
+  }
+
+  h1{
+    color: $TitleColor;
+    font-family: $SecondaryFont;
+    font-weight: $FontBold;
+  }
+
+  p {
+    color: gray;
+    font-size: 14px;
+  }
+
+  .prices {
+    color: $GreenColor;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
