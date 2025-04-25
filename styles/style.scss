@@ -2,6 +2,8 @@ $CreamColor: hsl(30, 38%, 92%);
 $CardColor: hsl(0, 0%, 100%);
 $TitleColor: hsl(212, 21%, 14%);
 $GreenColor: hsl(158, 36%, 37%);
+$GreenColorTwo: hsl(158, 42%, 18%);
+$GreyColor: hsl(228, 12%, 48%);
 $FontMain: "Montserrat", sans-serif;
 $FontBold: 700;
 $FontLight: 300;
@@ -11,7 +13,6 @@ $SecondaryFont: "Fraunces", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 * {
@@ -32,11 +33,20 @@ body {
   background-color: $CardColor;
   border-radius: 15px;
   overflow: hidden;
-  width: 900px;
+  width: 600px;
+}
+
+.product-desktop {
+  display: block;
+  width: 50%;
+}
+
+.product-mobile {
+  display: none;
 }
 
 .content {
-    padding: 30px;
+  padding: 20px 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -54,13 +64,71 @@ body {
   }
 
   p {
-    color: gray;
+    color: $GreyColor;
     font-size: 14px;
+
   }
 
   .prices {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: $SecondaryFont;
+    .price{
     color: $GreenColor;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    }
+    .off{
+      text-decoration-line: line-through;
+    }
+  }
+
+  button{
+    @include flexCenter();
+    padding: 18px;
+    gap: 20px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: $GreenColor;
+    font-family: $FontMain;
+    font-weight: $FontBold;
+    color: $CardColor;
+    cursor: pointer;
+
+    transition: 0.5s ease-in-out;
+  }
+  button:hover{
+    background-color: $GreenColorTwo;
+    
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+  }
+  .product-desktop {
+    display: none;
+  }
+  .product-mobile {
+    display: block;
+    width: 100%;
+  }
+  .content{
+    padding: 20px 25px;
+    gap: 10px;
+  }
+  h2{
+    font-size: 15px;
+  }
+  h1{
+    font-size: 22px;
+  }
+
+  p{
+    font-size: 7px;
+    
   }
 }
